@@ -1,9 +1,10 @@
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 
 exports.verifyToken = (req) => {
     if(req.headers['token'] && req.headers['userid'] ){
-      const authenticated = jwt.verify(req.headers['token'],"72e5e758253201f053d4474ce4f5ae4e");
+      const authenticated = jwt.verify(req.headers['token'],process.env.SECRET_KEY);
       if(authenticated){
         return true
       }
@@ -19,7 +20,7 @@ exports.verifyToken = (req) => {
 exports.sendToken = (result) => {
     const token= jwt.sign(
         { user_id: result.userId, email:result.email },
-         "72e5e758253201f053d4474ce4f5ae4e"
+        process.env.SECRET_KEY
       );
       return token
 };

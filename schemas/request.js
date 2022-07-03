@@ -8,7 +8,7 @@ const reqSchema = new mongoose.Schema({
     adminMargin: { type: Number },
     status: { type: Number, unique: true, required: true },
     custMobile: { type: String, unique: true, required: true },
-    totalPrice: { type: String, unique: true, required: true },
+    totalPrice: { type: Number, unique: true, required: true },
     technicianDetails: { type: Object, unique: true },
     techieMargin:{ type: Number },
     custName: { type: String, unique: true },

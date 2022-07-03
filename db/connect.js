@@ -1,5 +1,6 @@
 const { MongoClient } = require("mongodb");
-const connectionString = process.env.ATLAS_URI || "mongodb+srv://vendor_2022:TR5Nv9Zcbchqms39@vendor.ewijid3.mongodb.net/?retryWrites=true&w=majority";
+require('dotenv').config();
+const connectionString = process.env.ATLAS_URI;
 const client = new MongoClient(connectionString, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
